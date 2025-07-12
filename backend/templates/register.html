@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block title %}Register - Whistleblower Platform{% endblock %}
+{% block content %}
+    <h2>User Registration</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% elif message %}
+        <p style="color:green;">{{ message }}</p>
+    {% endif %}
+    <form method="POST">
+        <label for="metamask_address">MetaMask Address:</label>
+        <input type="text" id="metamask_address" name="metamask_address" required>
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}

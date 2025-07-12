@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %}Submit Report - Whistleblower Platform{% endblock %}
+{% block content %}
+    <h2>Submit a Report</h2>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% elif message %}
+        <p style="color:green;">{{ message }}</p>
+        <p><strong>IPFS Hash:</strong> {{ ipfs_hash }}</p>
+        <p><strong>Transaction Object:</strong> {{ tx_object }}</p>
+        {% if document_url %}
+            <p><strong>Document:</strong> <a href="{{ document_url }}" target="_blank">View Document</a></p>
+        {% endif %}
+    {% endif %}
+    <form method="POST" enctype="multipart/form-data">
+        <label for="metamask_address">MetaMask Address:</label>
+        <input type="text" id="metamask_address" name="metamask_address" required><br>
+
+        <label for="organization">Organization:</label>
+        <input type="text" id="organization" name="organization" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="document">Upload Document (optional):</label>
+        <input type="file" id="document" name="document"><br>
+
+        <button type="submit">Submit Report</button>
+    </form>
+{% endblock %}

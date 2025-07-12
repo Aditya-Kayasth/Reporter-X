@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %}My Reports - Whistleblower Platform{% endblock %}
+{% block content %}
+    <h2>Reports for {{ metamask_address }}</h2>
+    {% if reports %}
+        <ul>
+            {% for report in reports %}
+                <li>
+                    <strong>Organization:</strong> {{ report.organization }}<br>
+                    <strong>Description:</strong> {{ report.description }}<br>
+                    <strong>Status:</strong> {{ report.status }}<br>
+                    {% if report.document_url %}
+                        <strong>Document:</strong> <a href="{{ report.document_url }}" target="_blank">View Document</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reports found.</p>
+    {% endif %}
+{% endblock %}

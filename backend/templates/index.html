@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block title %}Home - Whistleblower Platform{% endblock %}
+{% block content %}
+    <h2>Welcome</h2>
+    <p>Use this platform to report issues securely.</p>
+    <p>
+        <a href="{{ url_for('register_user') }}">Register</a> |
+        <a href="{{ url_for('report_issue') }}">Submit a Report</a> |
+        <a href="{{ url_for('get_my_reports', metamask_address='YOUR_METAMASK_ADDRESS') }}">My Reports</a>
+    </p>
+{% endblock %}
